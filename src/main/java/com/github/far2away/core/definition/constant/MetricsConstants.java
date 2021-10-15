@@ -1,8 +1,10 @@
-package com.github.far2away.core.define.constant;
+package com.github.far2away.core.definition.constant;
 
 import lombok.experimental.UtilityClass;
 
 /**
+ * 指标常量，用于记录指标，一般用于内部使用
+ *
  * @author far2away
  * @since 2021/10/14
  */
@@ -21,6 +23,8 @@ public class MetricsConstants {
     public final String METRICS_NAME_LONG_SQL_EXEC = METRICS_CORE_PREFIX + "long_sql_exec";
 
     public final String METRICS_NAME_UNEXPECTED_EXCEPTION_ON_TASK = METRICS_CORE_PREFIX + "unexpected_exception_on_task";
+
+    public final String TAG_NAME_URL = "url";
 
     public final String TAG_NAME_EXCEPTION_NAME = "exception_name";
 

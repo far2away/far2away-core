@@ -1,0 +1,27 @@
+{
+    "groups": [
+    ],
+    "properties": [
+        {
+            "name": "far2away.core.exception.globalHandler.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable exception global handler, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.i18n.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable i18n enhancement, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.metrics.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable metrics record, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.schedule.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable schedule enhancement, true is enable, default is true"
+        }
+    ],
+    "hints": []
+}

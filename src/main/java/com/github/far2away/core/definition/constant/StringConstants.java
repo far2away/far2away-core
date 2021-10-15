@@ -1,9 +1,9 @@
-package com.github.far2away.core.define.constant;
+package com.github.far2away.core.definition.constant;
 
 import lombok.experimental.UtilityClass;
 
 /**
- * 部分常用字符串常量-标点符号等
+ * 字符串常量，标点符号等
  *
  * @author far2away
  * @since 2021/10/14
