@@ -7,4 +7,5 @@ com.github.far2away.core.spring.metrics.MetricsAutoConfig,\
 com.github.far2away.core.spring.metrics.TimeAspectAutoConfig,\
 com.github.far2away.core.spring.mybatis.MybatisAutoConfig,\
 com.github.far2away.core.spring.p6spy.P6spyAutoConfig,\
-com.github.far2away.core.spring.schedule.SpringScheduleAutoConfig
+com.github.far2away.core.spring.schedule.SpringScheduleAutoConfig,\
+com.github.far2away.core.spring.swagger.SwaggerAutoConfig

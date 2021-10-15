@@ -4,63 +4,68 @@
             "name": "far2away.core.p6spy",
             "type": "com.github.far2away.core.spring.p6spy.P6spyProperties",
             "sourceType": "com.github.far2away.core.spring.p6spy.P6spyProperties"
+        },
+        {
+            "name": "far2away.core.swagger",
+            "type": "com.github.far2away.core.spring.swagger.SwaggerProperties",
+            "sourceType": "com.github.far2away.core.spring.swagger.SwaggerProperties"
         }
     ],
     "properties": [
         {
             "name": "far2away.core.exception.globalHandler.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable exception global handler, true is enable, default is true"
+            "description": "# Whether to enable exception global handler, true is enable, default is true"
         },
         {
             "name": "far2away.core.i18n.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable i18n enhancement, true is enable, default is true"
+            "description": "# Whether to enable i18n enhancement, true is enable, default is true"
         },
         {
             "name": "far2away.core.jackson.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable jackson enhancement, true is enable, default is true"
+            "description": "# Whether to enable jackson enhancement, true is enable, default is true"
         },
         {
             "name": "far2away.core.jackson.i18nDetails.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable jackson i18nDetails serialize, true is enable, default is true"
+            "description": "# Whether to enable jackson i18nDetails serialize, true is enable, default is true"
         },
         {
             "name": "far2away.core.jackson.i18nEnum.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable jackson i18nEnum serialize, true is enable, default is true"
+            "description": "# Whether to enable jackson i18nEnum serialize, true is enable, default is true"
         },
         {
             "name": "far2away.core.jackson.number2string.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable jackson number2string, true is enable, default is true"
+            "description": "# Whether to enable jackson number2string, true is enable, default is true"
         },
         {
             "name": "far2away.core.jackson.date2timestamp.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable jackson date2timestamp, true is enable, default is true"
+            "description": "# Whether to enable jackson date2timestamp, true is enable, default is true"
         },
         {
             "name": "far2away.core.jackson.defaultSetting.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable jackson defaultSetting, true is enable, default is true"
+            "description": "# Whether to enable jackson defaultSetting, true is enable, default is true"
         },
         {
             "name": "far2away.core.metrics.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable metrics record, true is enable, default is true"
+            "description": "# Whether to enable metrics record, true is enable, default is true"
         },
         {
             "name": "far2away.core.mybatis.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable mybatis enhancement, true is enable, default is true"
+            "description": "# Whether to enable mybatis enhancement, true is enable, default is true"
         },
         {
             "name": "far2away.core.p6spy.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable p6spy, true is enable, default is true"
+            "description": "# Whether to enable p6spy, true is enable, default is true"
         },
         {
             "name": "far2away.core.p6spy.appender",
@@ -101,7 +106,43 @@
         {
             "name": "far2away.core.schedule.enabled",
             "type": "java.lang.Boolean",
-            "description": "Whether to enable schedule enhancement, true is enable, default is true"
+            "description": "# Whether to enable schedule enhancement, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.swagger.jwtEnabled",
+            "type": "java.lang.Boolean",
+            "description": "# Whether to enable jwt token, true is enable, default false",
+            "sourceType": "com.github.far2away.core.spring.swagger.SwaggerProperties"
+        },
+        {
+            "name": "far2away.core.swagger.title",
+            "type": "java.lang.String",
+            "description": "# specifies the swagger api title # (default is Swagger API)",
+            "sourceType": "com.github.far2away.core.spring.swagger.SwaggerProperties"
+        },
+        {
+            "name": "far2away.core.swagger.description",
+            "type": "java.lang.String",
+            "description": "# specifies the swagger api description # (default is Swagger API Info)",
+            "sourceType": "com.github.far2away.core.spring.swagger.SwaggerProperties"
+        },
+        {
+            "name": "far2away.core.swagger.contactName",
+            "type": "java.lang.String",
+            "description": "# specifies the swagger api contact name # (default is far2away)",
+            "sourceType": "com.github.far2away.core.spring.swagger.SwaggerProperties"
+        },
+        {
+            "name": "far2away.core.swagger.contactEmail",
+            "type": "java.lang.String",
+            "description": "# specifies the swagger api contact email # (default is empty)",
+            "sourceType": "com.github.far2away.core.spring.swagger.SwaggerProperties"
+        },
+        {
+            "name": "far2away.core.swagger.version",
+            "type": "java.lang.String",
+            "description": "# specifies the swagger api version # (default is V1)",
+            "sourceType": "com.github.far2away.core.spring.swagger.SwaggerProperties"
         }
     ],
     "hints": []
