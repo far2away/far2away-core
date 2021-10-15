@@ -36,7 +36,7 @@ public class P6spyBeanPostProcessor implements BeanPostProcessor, Ordered, Appli
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         if (bean instanceof DataSource) {
             //proxy datasource with p6spy to record sql
-            log.info("successfully_delegated_datasource_{}_{}", bean.getClass().getSimpleName(), beanName);
+            log.info("far2away_p6spy_delegated_datasource_{}_{}", bean.getClass().getSimpleName(), beanName);
             return new P6DataSource((DataSource) bean);
         }
         return bean;

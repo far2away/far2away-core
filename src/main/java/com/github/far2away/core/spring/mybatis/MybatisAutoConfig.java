@@ -49,7 +49,6 @@ public class MybatisAutoConfig {
     @Bean
     @ConditionalOnMissingBean
     public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource, ObjectProvider<Interceptor[]> interceptorsProvider) throws IOException {
-        log.info("far2away_core_mybatis_sql_session_configured");
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
 
@@ -67,6 +66,7 @@ public class MybatisAutoConfig {
         //增加默认包路径，resource下面的mapper
         PathMatchingResourcePatternResolver pathM3R = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(pathM3R.getResources("classpath*:mapper/**/*.xml"));
+        log.info("far2away_core_mybatis_sql_session_configured");
         return sqlSessionFactoryBean;
     }
 
