@@ -17,17 +17,40 @@
 
     <name>far2away core</name>
     <description>Designed to make java development easier</description>
+    <url>https://github.com/far2away/far2away-core</url>
+
+    <licenses>
+        <license>
+            <name>GPL-v3.0</name>
+            <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Levi Su</name>
+            <email>swb0917@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <tag>far2away-core-1.0.0</tag>
+        <connection>scm:git:git@github.com:far2away/far2away-core.git</connection>
+        <developerConnection>scm:git:git@github.com:far2away/far2away-core.git</developerConnection>
+        <url>git@github.com:far2away/far2away-core.git</url>
+    </scm>
 
     <properties>
-        <!-- java version -->
+        <!-- java version and encoding -->
         <java.version>1.8</java.version>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
         <!-- jar version -->
-        <spring.version>2.5.5</spring.version>
         <springfox.version>3.0.0</springfox.version>
         <mybatis.version>2.2.0</mybatis.version>
-        <lombok.version>1.18.22</lombok.version>
         <feign.version>11.6</feign.version>
     </properties>
 
