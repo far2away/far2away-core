@@ -1,5 +1,10 @@
 {
     "groups": [
+        {
+            "name": "far2away.core.p6spy",
+            "type": "com.github.far2away.core.spring.p6spy.P6spyProperties",
+            "sourceType": "com.github.far2away.core.spring.p6spy.P6spyProperties"
+        }
     ],
     "properties": [
         {
@@ -51,6 +56,47 @@
             "name": "far2away.core.mybatis.enabled",
             "type": "java.lang.Boolean",
             "description": "Whether to enable mybatis enhancement, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.p6spy.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable p6spy, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.p6spy.appender",
+            "type": "java.lang.String",
+            "description": "# specifies the appender to use for logging # (default is com.github.far2away.core.spring.p6spy.P6spySqlLogger)",
+            "sourceType": "com.github.far2away.core.spring.p6spy.P6spyProperties"
+        },
+        {
+            "name": "far2away.core.p6spy.logMessageFormat",
+            "type": "java.lang.String",
+            "description": "# class to use for formatting log messages (default is com.github.far2away.core.spring.p6spy.P6spySqlFormat)",
+            "sourceType": "com.github.far2away.core.spring.p6spy.P6spyProperties"
+        },
+        {
+            "name": "far2away.core.p6spy.dateformat",
+            "type": "java.lang.String",
+            "description": "# sets the date format using Java's SimpleDateFormat routine (default is yyyy-MM-dd HH:mm:ss.SSS)",
+            "sourceType": "com.github.far2away.core.spring.p6spy.P6spyProperties"
+        },
+        {
+            "name": "far2away.core.p6spy.databaseDialectDateFormat",
+            "type": "java.lang.String",
+            "description": "# format that is used for logging of the java.util.Date implementations (default is yyyy-MM-dd HH:mm:ss.SSS)",
+            "sourceType": "com.github.far2away.core.spring.p6spy.P6spyProperties"
+        },
+        {
+            "name": "far2away.core.p6spy.databaseDialectTimestampFormat",
+            "type": "java.lang.String",
+            "description": "# format that is used for logging of the java.sql.Timestamp implementations (default is yyyy-MM-dd HH:mm:ss.SSS)",
+            "sourceType": "com.github.far2away.core.spring.p6spy.P6spyProperties"
+        },
+        {
+            "name": "far2away.core.p6spy.jmx",
+            "type": "java.lang.String",
+            "description": "# whether to expose options via JMX or not (default is false)",
+            "sourceType": "com.github.far2away.core.spring.p6spy.P6spyProperties"
         },
         {
             "name": "far2away.core.schedule.enabled",
