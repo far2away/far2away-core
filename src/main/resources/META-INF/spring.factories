@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.github.far2away.core.spring.async.AsyncAutoConfig,\
 com.github.far2away.core.spring.context.SpringContextAutoConfig,\
 com.github.far2away.core.spring.exception.ExceptionHandlerAutoConfig,\
 com.github.far2away.core.spring.i18n.I18nAutoConfig,\
@@ -8,5 +9,5 @@ com.github.far2away.core.spring.metrics.TimeAspectAutoConfig,\
 com.github.far2away.core.spring.mybatis.MybatisAutoConfig,\
 com.github.far2away.core.spring.p6spy.P6spyAutoConfig,\
 com.github.far2away.core.spring.retry.RetryAutoConfig,\
-com.github.far2away.core.spring.schedule.SpringScheduleAutoConfig,\
+com.github.far2away.core.spring.schedule.ScheduleAutoConfig,\
 com.github.far2away.core.spring.swagger.SwaggerAutoConfig

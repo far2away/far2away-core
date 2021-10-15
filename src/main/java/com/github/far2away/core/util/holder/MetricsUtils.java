@@ -126,6 +126,19 @@ public class MetricsUtils {
         counter(MetricsConstants.METRICS_NAME_UNEXPECTED_EXCEPTION_ON_TASK, tags);
     }
 
+    /**
+     * 特定用途：记录异步任务中异常
+     *
+     * @param exceptionName the exception name
+     * @param methodName    the method name
+     */
+    public void recordUnexpectedExceptionOnAsync(String exceptionName, String methodName) {
+        Map<String, String> tags = new HashMap<>(2);
+        tags.put(MetricsConstants.TAG_NAME_EXCEPTION_NAME, exceptionName);
+        tags.put(MetricsConstants.TAG_NAME_METHOD_NAME, methodName);
+        counter(MetricsConstants.METRICS_NAME_UNEXPECTED_EXCEPTION_ON_ASYNC, tags);
+    }
+
     private List<Tag> mapToTagList(@Nullable Map<String, String> tags) {
         if (Objects.isNull(tags)) {
             return Collections.emptyList();

@@ -13,6 +13,11 @@
     ],
     "properties": [
         {
+            "name": "far2away.core.async.executor.enabled",
+            "type": "java.lang.Boolean",
+            "description": "# Whether to enable async executor, true is enable, default is true"
+        },
+        {
             "name": "far2away.core.exception.globalHandler.enabled",
             "type": "java.lang.Boolean",
             "description": "# Whether to enable exception global handler, true is enable, default is true"
@@ -112,6 +117,11 @@
             "name": "far2away.core.schedule.enabled",
             "type": "java.lang.Boolean",
             "description": "# Whether to enable schedule enhancement, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.schedule.executor.enabled",
+            "type": "java.lang.Boolean",
+            "description": "# Whether to enable schedule executor, true is enable, default is true"
         },
         {
             "name": "far2away.core.swagger.jwtEnabled",
