@@ -132,9 +132,10 @@ public class MetricsUtils {
      * @param exceptionName the exception name
      * @param methodName    the method name
      */
-    public void recordUnexpectedExceptionOnAsync(String exceptionName, String methodName) {
+    public void recordUnexpectedExceptionOnAsync(String exceptionName, String className, String methodName) {
         Map<String, String> tags = new HashMap<>(2);
         tags.put(MetricsConstants.TAG_NAME_EXCEPTION_NAME, exceptionName);
+        tags.put(MetricsConstants.TAG_NAME_CLASS_NAME, className);
         tags.put(MetricsConstants.TAG_NAME_METHOD_NAME, methodName);
         counter(MetricsConstants.METRICS_NAME_UNEXPECTED_EXCEPTION_ON_ASYNC, tags);
     }

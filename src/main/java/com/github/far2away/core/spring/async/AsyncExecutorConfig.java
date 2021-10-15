@@ -8,10 +8,13 @@ import java.util.concurrent.ThreadPoolExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Role;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
@@ -23,29 +26,32 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
  * @since 2021/10/16
  */
 @Slf4j
+@Configuration
+@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 public class AsyncExecutorConfig {
 
     private static final String BEAN_NAME_ASYNC_EXECUTOR = "asyncExecutor";
 
-    @Bean
     @Primary
+    @Bean(BEAN_NAME_ASYNC_EXECUTOR)
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     public ThreadPoolTaskExecutor asyncExecutor() {
-        ThreadPoolTaskExecutor applicationExecutor = new ThreadPoolTaskExecutor();
-        applicationExecutor.setCorePoolSize(2);
-        applicationExecutor.setMaxPoolSize(4);
-        applicationExecutor.setKeepAliveSeconds(60);
-        applicationExecutor.setQueueCapacity(2000);
-        applicationExecutor.setThreadNamePrefix("async-");
-        applicationExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
-        return applicationExecutor;
+        ThreadPoolTaskExecutor asyncExecutor = new ThreadPoolTaskExecutor();
+        asyncExecutor.setCorePoolSize(2);
+        asyncExecutor.setMaxPoolSize(4);
+        asyncExecutor.setKeepAliveSeconds(60);
+        asyncExecutor.setQueueCapacity(2000);
+        asyncExecutor.setThreadNamePrefix("async-");
+        asyncExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        return asyncExecutor;
     }
 
     @Bean
-    public AsyncConfigurer asyncConfigurer(@Qualifier(BEAN_NAME_ASYNC_EXECUTOR) ThreadPoolTaskScheduler asyncExecutor) {
+    public AsyncConfigurer asyncConfigurer() {
         return new AsyncConfigurer() {
             @Override
             public Executor getAsyncExecutor() {
-                return asyncExecutor;
+                return asyncExecutor();
             }
 
             @Override

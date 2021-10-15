@@ -34,6 +34,7 @@ public class RetryAutoConfig {
     }
 
     @Bean
+    @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
     public RetryLogListener retryLogListener() {
         return new RetryLogListener();
     }

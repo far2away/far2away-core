@@ -24,7 +24,7 @@ public class MetricsConstants {
 
     public final String METRICS_NAME_UNEXPECTED_EXCEPTION_ON_TASK = METRICS_CORE_PREFIX + "unexpected_exception_on_task";
 
-    public final String METRICS_NAME_UNEXPECTED_EXCEPTION_ON_ASYNC = METRICS_CORE_PREFIX + "unexpected_exception_on_task_async";
+    public final String METRICS_NAME_UNEXPECTED_EXCEPTION_ON_ASYNC = METRICS_CORE_PREFIX + "unexpected_exception_on_async";
 
     public final String TAG_NAME_URL = "url";
 

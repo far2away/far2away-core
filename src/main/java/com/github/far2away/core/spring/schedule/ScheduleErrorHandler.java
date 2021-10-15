@@ -20,7 +20,7 @@ public class ScheduleErrorHandler implements ErrorHandler {
         String className = stackTraceElementOptional.map(StackTraceElement::getClassName).orElse(StringConstants.HYPHEN);
         String methodName = stackTraceElementOptional.map(StackTraceElement::getMethodName).orElse(StringConstants.HYPHEN);
         //输出日志
-        log.error("schedule_exception_4_method_" + className + StringConstants.UNDERSCORE + methodName, t);
+        log.error("schedule_exception_4_" + className + StringConstants.UNDERSCORE + methodName, t);
         //记录指标
         MetricsUtils.recordUnexpectedExceptionOnTask(t.getClass().getName(), className, methodName);
     }

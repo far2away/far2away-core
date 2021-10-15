@@ -25,7 +25,7 @@ public class ScheduleExecutorConfig {
 
     private static final String BEAN_NAME_SCHEDULE_EXECUTOR = "scheduleExecutor";
 
-    @Bean
+    @Bean(BEAN_NAME_SCHEDULE_EXECUTOR)
     public ThreadPoolTaskScheduler scheduleExecutor() {
         ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
         taskScheduler.setPoolSize(2);

@@ -1,5 +1,6 @@
 package com.github.far2away.core.spring.async;
 
+import com.github.far2away.core.definition.constant.StringConstants;
 import com.github.far2away.core.util.holder.MetricsUtils;
 import java.lang.reflect.Method;
 import lombok.extern.slf4j.Slf4j;
@@ -14,11 +15,12 @@ public class AsyncErrorHandler implements AsyncUncaughtExceptionHandler {
 
     @Override
     public void handleUncaughtException(Throwable ex, Method method, Object... params) {
+        String className = method.getDeclaringClass().getName();
         String methodName = method.getName();
         //输出日志
-        log.error("async_exception_4_method_" + methodName, ex);
+        log.error("async_exception_4_" + className + StringConstants.UNDERSCORE + methodName, ex);
         //记录指标
-        MetricsUtils.recordUnexpectedExceptionOnAsync(ex.getClass().getName(), methodName);
+        MetricsUtils.recordUnexpectedExceptionOnAsync(ex.getClass().getName(), className, methodName);
     }
 
 }

@@ -18,6 +18,10 @@ public class SpringUtils {
         return getApplicationContext().getBean(clazz);
     }
 
+    public <T> T getBean(String name, Class<T> clazz) {
+        return getApplicationContext().getBean(name, clazz);
+    }
+
     @Nullable
     public <T> T getBeanSilently(Class<T> clazz) {
         try {

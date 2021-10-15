@@ -4,8 +4,6 @@ import com.github.far2away.core.definition.constant.StringConstants;
 import java.lang.reflect.Field;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.context.annotation.Role;
 import org.springframework.retry.RetryCallback;
 import org.springframework.retry.RetryContext;
 import org.springframework.retry.RetryListener;
@@ -18,7 +16,6 @@ import org.springframework.util.ReflectionUtils;
  * @since 2021/10/15
  */
 @Slf4j(topic = "RETRY_LOG")
-@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 public class RetryLogListener implements RetryListener {
 
     private static final String FIELD_NAME_LABEL = "label";
