@@ -51,7 +51,7 @@ public class I18nUtils {
     }
 
     @Nullable
-    public String getMessage(String code, @Nullable Object[] args, @Nullable String defaultMessage) {
+    public String getI18nMessage(String code, @Nullable Object[] args, @Nullable String defaultMessage) {
         return getInstance().getMessage(code, args, defaultMessage, getLocale());
     }
 
@@ -65,7 +65,7 @@ public class I18nUtils {
      * @param args the args
      * @return the message
      */
-    public String getMessage(String code, @Nullable Object[] args) {
+    public String getI18nMessage(String code, @Nullable Object[] args) {
         return getInstance().getMessage(code, args, getLocale());
     }
 

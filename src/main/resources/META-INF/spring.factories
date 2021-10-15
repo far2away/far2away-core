@@ -2,6 +2,7 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.github.far2away.core.spring.context.SpringContextAutoConfig,\
 com.github.far2away.core.spring.exception.ExceptionHandlerAutoConfig,\
 com.github.far2away.core.spring.i18n.I18nAutoConfig,\
+com.github.far2away.core.spring.jackson.JacksonAutoConfig,\
 com.github.far2away.core.spring.metrics.MetricsAutoConfig,\
 com.github.far2away.core.spring.metrics.TimeAspectAutoConfig,\
 com.github.far2away.core.spring.schedule.SpringScheduleAutoConfig

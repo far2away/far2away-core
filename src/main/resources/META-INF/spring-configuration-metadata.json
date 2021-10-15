@@ -13,6 +13,36 @@
             "description": "Whether to enable i18n enhancement, true is enable, default is true"
         },
         {
+            "name": "far2away.core.jackson.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable jackson enhancement, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.jackson.i18nDetails.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable jackson i18nDetails serialize, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.jackson.i18nEnum.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable jackson i18nEnum serialize, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.jackson.number2string.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable jackson number2string, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.jackson.date2timestamp.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable jackson date2timestamp, true is enable, default is true"
+        },
+        {
+            "name": "far2away.core.jackson.defaultSetting.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable jackson defaultSetting, true is enable, default is true"
+        },
+        {
             "name": "far2away.core.metrics.enabled",
             "type": "java.lang.Boolean",
             "description": "Whether to enable metrics record, true is enable, default is true"
