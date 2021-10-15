@@ -51,6 +51,7 @@
         <!-- jar version -->
         <springfox.version>3.0.0</springfox.version>
         <mybatis.version>2.2.0</mybatis.version>
+        <pagehelper.version>5.3.0</pagehelper.version>
         <feign.version>11.6</feign.version>
     </properties>
 
@@ -80,6 +81,12 @@
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>${mybatis.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pagehelper.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

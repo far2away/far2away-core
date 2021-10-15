@@ -48,6 +48,11 @@
             "description": "Whether to enable metrics record, true is enable, default is true"
         },
         {
+            "name": "far2away.core.mybatis.enabled",
+            "type": "java.lang.Boolean",
+            "description": "Whether to enable mybatis enhancement, true is enable, default is true"
+        },
+        {
             "name": "far2away.core.schedule.enabled",
             "type": "java.lang.Boolean",
             "description": "Whether to enable schedule enhancement, true is enable, default is true"
