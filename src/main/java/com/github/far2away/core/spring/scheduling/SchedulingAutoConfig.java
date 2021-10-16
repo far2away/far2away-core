@@ -23,7 +23,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 @Configuration
 @AutoConfigureBefore(TaskSchedulingAutoConfiguration.class)
 @Import({SchedulingCorePoolSizeCustomizer.class, SchedulingMetricsAspect.class})
-@ConditionalOnProperty(name = "far2away.core.schedule.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(name = "far2away.core.scheduling.enabled", havingValue = "true", matchIfMissing = true)
 public class SchedulingAutoConfig {
 
     @PostConstruct

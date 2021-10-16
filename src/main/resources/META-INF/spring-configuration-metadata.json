@@ -114,14 +114,9 @@
             "description": "# Whether to enable retry enhancement, true is enable, default is true"
         },
         {
-            "name": "far2away.core.schedule.enabled",
+            "name": "far2away.core.scheduling.enabled",
             "type": "java.lang.Boolean",
             "description": "# Whether to enable schedule enhancement, true is enable, default is true"
-        },
-        {
-            "name": "far2away.core.schedule.executor.enabled",
-            "type": "java.lang.Boolean",
-            "description": "# Whether to enable schedule executor, true is enable, default is true"
         },
         {
             "name": "far2away.core.swagger.jwtEnabled",
