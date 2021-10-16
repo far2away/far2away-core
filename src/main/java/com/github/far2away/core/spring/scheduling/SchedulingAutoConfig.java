@@ -39,7 +39,7 @@ public class SchedulingAutoConfig {
     @Bean
     public TaskSchedulerCustomizer taskSchedulerErrorHandlerCustomizer() {
         return taskScheduler -> {
-            //自定义定时任务的错误处理器，增加指标
+            //自定义定时任务的错误处理器
             taskScheduler.setErrorHandler(new SchedulingErrorHandlerCustomizer());
             log.debug("far2away_core_schedule_error_handler_configured");
         };

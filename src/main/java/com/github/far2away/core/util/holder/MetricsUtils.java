@@ -130,17 +130,17 @@ public class MetricsUtils {
     }
 
     /**
-     * 特定用途：记录异步任务中异常
+     * 特定用途：记录异步任务执行
      *
      * @param exceptionName the exception name
      * @param methodName    the method name
      */
-    public void recordUnexpectedExceptionOnAsync(String exceptionName, String className, String methodName) {
-        Map<String, String> tags = new HashMap<>(2);
-        tags.put(MetricsConstants.TAG_NAME_EXCEPTION_NAME, exceptionName);
+    public void recordAsyncExec(long timeMillis, String className, String methodName, String exceptionName) {
+        Map<String, String> tags = new HashMap<>(3);
         tags.put(MetricsConstants.TAG_NAME_CLASS_NAME, className);
         tags.put(MetricsConstants.TAG_NAME_METHOD_NAME, methodName);
-        counter(MetricsConstants.METRICS_NAME_ASYNC_EXEC, tags);
+        tags.put(MetricsConstants.TAG_NAME_EXCEPTION_NAME, exceptionName);
+        timer(MetricsConstants.METRICS_NAME_ASYNC_EXEC, timeMillis, tags);
     }
 
     private List<Tag> mapToTagList(@Nullable Map<String, String> tags) {

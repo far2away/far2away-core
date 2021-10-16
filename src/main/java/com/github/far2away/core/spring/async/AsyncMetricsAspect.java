@@ -1,4 +1,4 @@
-package com.github.far2away.core.spring.scheduling;
+package com.github.far2away.core.spring.async;
 
 import com.github.far2away.core.util.holder.MetricsUtils;
 import io.micrometer.core.instrument.MeterRegistry;
@@ -19,14 +19,14 @@ import org.springframework.core.annotation.Order;
 @Aspect
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ConditionalOnClass({Aspect.class, MeterRegistry.class})
-public class SchedulingMetricsAspect {
+public class AsyncMetricsAspect {
 
     @PostConstruct
     public void initLog() {
-        log.debug("far2away_core_schedule_exec_metrics_configured");
+        log.debug("far2away_core_async_exec_metrics_configured");
     }
 
-    @Around("execution (@org.springframework.scheduling.annotation.Scheduled  * *.*(..))")
+    @Around("execution (@org.springframework.scheduling.annotation.Async  * *.*(..))")
     public Object traceBackgroundThread(final ProceedingJoinPoint pjp) throws Throwable {
         String className = pjp.getTarget().getClass().getName();
         String methodName = pjp.getSignature().getName();
@@ -39,7 +39,7 @@ public class SchedulingMetricsAspect {
             throw ex;
         } finally {
             long end = System.currentTimeMillis();
-            MetricsUtils.recordSchedulingExec(end - start, className, methodName, sb.toString());
+            MetricsUtils.recordAsyncExec(end - start, className, methodName, sb.toString());
         }
     }
 
