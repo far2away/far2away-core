@@ -2,12 +2,9 @@ package com.github.far2away.core.spring.async;
 
 import javax.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.Role;
 import org.springframework.core.Ordered;
 
 /**
@@ -16,9 +13,7 @@ import org.springframework.core.Ordered;
  */
 @Slf4j
 @Configuration
-@Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
-@Import(AsyncExecutorConfig.class)
 @ConditionalOnProperty(name = "far2away.core.async.executor.enabled", havingValue = "true", matchIfMissing = true)
 public class AsyncAutoConfig {
 

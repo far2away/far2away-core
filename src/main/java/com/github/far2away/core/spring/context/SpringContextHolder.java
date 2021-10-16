@@ -18,7 +18,7 @@ public class SpringContextHolder implements ApplicationContextAware {
     public static ApplicationContext getApplicationContext() {
         ApplicationContext applicationContextHolder = APPLICATION_CONTEXT_HOLDER;
         if (Objects.isNull(applicationContextHolder)) {
-            throw new RuntimeException("SpringContext_not_initialized");
+            throw new RuntimeException("springContext_not_initialized");
         }
         return applicationContextHolder;
     }

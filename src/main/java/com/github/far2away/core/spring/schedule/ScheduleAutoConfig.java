@@ -1,14 +1,19 @@
 package com.github.far2away.core.spring.schedule;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Tags;
+import io.micrometer.core.instrument.binder.jvm.ExecutorServiceMetrics;
 import javax.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration;
 import org.springframework.boot.task.TaskSchedulerCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.core.Ordered;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 /**
  * @author far2away
@@ -16,8 +21,8 @@ import org.springframework.core.Ordered;
  */
 @Slf4j
 @Configuration
-@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
-@Import(ScheduleExecutorConfig.class)
+@AutoConfigureBefore(TaskSchedulingAutoConfiguration.class)
+@Import(ScheduleCorePoolSizeCustomizer.class)
 @ConditionalOnProperty(name = "far2away.core.schedule.enabled", havingValue = "true", matchIfMissing = true)
 public class ScheduleAutoConfig {
 
@@ -26,12 +31,34 @@ public class ScheduleAutoConfig {
         log.info("far2away_core_schedule_auto_configured");
     }
 
+    /**
+     * 定时任务线程池-增加error handler
+     *
+     * @return the task scheduler customizer
+     */
     @Bean
-    public TaskSchedulerCustomizer taskSchedulerCustomizer() {
+    public TaskSchedulerCustomizer taskSchedulerErrorHandlerCustomizer() {
         return taskScheduler -> {
             //自定义定时任务的错误处理器，增加指标
-            taskScheduler.setErrorHandler(new ScheduleErrorHandler());
+            taskScheduler.setErrorHandler(new ScheduleErrorHandlerCustomizer());
+            log.debug("far2away_core_schedule_error_handler_configured");
         };
+    }
+
+    @ConditionalOnClass(MeterRegistry.class)
+    static class ScheduleExecutorMetrics {
+
+        private static final String METRICS_NAME_SCHEDULE = "schedule_executor";
+
+        @Bean
+        public ExecutorServiceMetrics taskSchedulerMetrics(MeterRegistry registry, ThreadPoolTaskScheduler taskScheduler) {
+            ExecutorServiceMetrics executorServiceMetrics = new ExecutorServiceMetrics(taskScheduler.getScheduledThreadPoolExecutor(),
+                METRICS_NAME_SCHEDULE, Tags.empty());
+            executorServiceMetrics.bindTo(registry);
+            log.debug("far2away_core_schedule_metrics_{}_configured", METRICS_NAME_SCHEDULE);
+            return executorServiceMetrics;
+        }
+
     }
 
 }

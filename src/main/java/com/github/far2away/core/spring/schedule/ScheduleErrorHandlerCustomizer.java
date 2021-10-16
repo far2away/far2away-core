@@ -11,7 +11,7 @@ import org.springframework.util.ErrorHandler;
  * @since 2021/10/15
  */
 @Slf4j
-public class ScheduleErrorHandler implements ErrorHandler {
+public class ScheduleErrorHandlerCustomizer implements ErrorHandler {
 
     @Override
     public void handleError(Throwable t) {
