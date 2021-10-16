@@ -6,7 +6,7 @@
  */
 @NonNullApi
 @NonNullFields
-package com.github.far2away.core.spring.schedule;
+package com.github.far2away.core.spring.scheduling;
 
 import org.springframework.lang.NonNullApi;
 import org.springframework.lang.NonNullFields;

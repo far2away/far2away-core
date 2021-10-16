@@ -16,7 +16,7 @@ import org.slf4j.MDC;
 @UtilityClass
 public class TraceIdUtils {
 
-    private final String MDC_TRACE_ID_KEY = "X-B3-TraceId";
+    private final String MDC_TRACE_ID_KEY = "traceId";
 
     /**
      * 获取Trade Id

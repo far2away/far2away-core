@@ -6,6 +6,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Tag;
 import io.micrometer.core.instrument.Timer;
 import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -62,11 +63,12 @@ public class MetricsUtils {
     /**
      * 记录指标Timer
      *
-     * @param name     timer名字
-     * @param duration 记录的时间
-     * @param tags     tags指标标签，可为null或者空, Collections.emptyMap()
+     * @param name       timer名字
+     * @param timeMillis 时间，单位毫秒
+     * @param tags       tags指标标签，可为null或者空, Collections.emptyMap()
      */
-    public void timer(String name, Duration duration, @Nullable Map<String, String> tags) {
+    public void timer(String name, long timeMillis, @Nullable Map<String, String> tags) {
+        Duration duration = Duration.of(timeMillis, ChronoUnit.MILLIS);
         Optional<MeterRegistry> optionalInstance = getOptionalInstance();
         if (!optionalInstance.isPresent()) {
             return;
@@ -93,37 +95,38 @@ public class MetricsUtils {
     /**
      * 特定用途：记录SQL执行
      *
-     * @param duration the duration
+     * @param timeMillis 时间，单位毫秒
      */
-    public void recordSqlExec(Duration duration) {
-        timer(MetricsConstants.METRICS_NAME_SQL_EXEC, duration, Collections.emptyMap());
+    public void recordSqlExec(long timeMillis) {
+        timer(MetricsConstants.METRICS_NAME_SQL_EXEC, timeMillis, Collections.emptyMap());
     }
 
     /**
      * 特定用途：记录长SQL
      *
-     * @param duration the duration
-     * @param md5      the md 5
+     * @param timeMillis 时间，单位毫秒
+     * @param md5        the md5
      */
-    public void recordLongSqlExec(Duration duration, String md5) {
+    public void recordLongSqlExec(long timeMillis, String md5) {
         Map<String, String> tags = new HashMap<>(1);
         tags.put(MetricsConstants.TAG_NAME_SQL_PREPARED_MD5, md5);
-        timer(MetricsConstants.METRICS_NAME_LONG_SQL_EXEC, duration, tags);
+        timer(MetricsConstants.METRICS_NAME_LONG_SQL_EXEC, timeMillis, tags);
     }
 
     /**
-     * 特定用途：记录定时任务中异常
+     * 特定用途：记录定时任务执行
      *
-     * @param exceptionName the exception name
+     * @param timeMillis    时间，单位毫秒
      * @param className     the class name
      * @param methodName    the method name
+     * @param exceptionName the exception name
      */
-    public void recordUnexpectedExceptionOnTask(String exceptionName, String className, String methodName) {
+    public void recordSchedulingExec(long timeMillis, String className, String methodName, String exceptionName) {
         Map<String, String> tags = new HashMap<>(3);
-        tags.put(MetricsConstants.TAG_NAME_EXCEPTION_NAME, exceptionName);
         tags.put(MetricsConstants.TAG_NAME_CLASS_NAME, className);
         tags.put(MetricsConstants.TAG_NAME_METHOD_NAME, methodName);
-        counter(MetricsConstants.METRICS_NAME_UNEXPECTED_EXCEPTION_ON_TASK, tags);
+        tags.put(MetricsConstants.TAG_NAME_EXCEPTION_NAME, exceptionName);
+        timer(MetricsConstants.METRICS_NAME_SCHEDULING_EXEC, timeMillis, tags);
     }
 
     /**
@@ -137,7 +140,7 @@ public class MetricsUtils {
         tags.put(MetricsConstants.TAG_NAME_EXCEPTION_NAME, exceptionName);
         tags.put(MetricsConstants.TAG_NAME_CLASS_NAME, className);
         tags.put(MetricsConstants.TAG_NAME_METHOD_NAME, methodName);
-        counter(MetricsConstants.METRICS_NAME_UNEXPECTED_EXCEPTION_ON_ASYNC, tags);
+        counter(MetricsConstants.METRICS_NAME_ASYNC_EXEC, tags);
     }
 
     private List<Tag> mapToTagList(@Nullable Map<String, String> tags) {

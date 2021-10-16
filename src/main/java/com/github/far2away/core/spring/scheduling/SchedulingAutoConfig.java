@@ -1,4 +1,4 @@
-package com.github.far2away.core.spring.schedule;
+package com.github.far2away.core.spring.scheduling;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Tags;
@@ -22,9 +22,9 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 @Slf4j
 @Configuration
 @AutoConfigureBefore(TaskSchedulingAutoConfiguration.class)
-@Import(ScheduleCorePoolSizeCustomizer.class)
+@Import({SchedulingCorePoolSizeCustomizer.class, SchedulingMetricsAspect.class})
 @ConditionalOnProperty(name = "far2away.core.schedule.enabled", havingValue = "true", matchIfMissing = true)
-public class ScheduleAutoConfig {
+public class SchedulingAutoConfig {
 
     @PostConstruct
     public void initLog() {
@@ -40,7 +40,7 @@ public class ScheduleAutoConfig {
     public TaskSchedulerCustomizer taskSchedulerErrorHandlerCustomizer() {
         return taskScheduler -> {
             //自定义定时任务的错误处理器，增加指标
-            taskScheduler.setErrorHandler(new ScheduleErrorHandlerCustomizer());
+            taskScheduler.setErrorHandler(new SchedulingErrorHandlerCustomizer());
             log.debug("far2away_core_schedule_error_handler_configured");
         };
     }
@@ -48,14 +48,14 @@ public class ScheduleAutoConfig {
     @ConditionalOnClass(MeterRegistry.class)
     static class ScheduleExecutorMetrics {
 
-        private static final String METRICS_NAME_SCHEDULE = "schedule_executor";
+        private static final String METRICS_NAME_SCHEDULING_THREAD_POOL = "scheduling_thread_pool";
 
         @Bean
         public ExecutorServiceMetrics taskSchedulerMetrics(MeterRegistry registry, ThreadPoolTaskScheduler taskScheduler) {
             ExecutorServiceMetrics executorServiceMetrics = new ExecutorServiceMetrics(taskScheduler.getScheduledThreadPoolExecutor(),
-                METRICS_NAME_SCHEDULE, Tags.empty());
+                METRICS_NAME_SCHEDULING_THREAD_POOL, Tags.empty());
             executorServiceMetrics.bindTo(registry);
-            log.debug("far2away_core_schedule_metrics_{}_configured", METRICS_NAME_SCHEDULE);
+            log.debug("far2away_core_schedule_thread_pool_metrics_{}_configured", METRICS_NAME_SCHEDULING_THREAD_POOL);
             return executorServiceMetrics;
         }
 

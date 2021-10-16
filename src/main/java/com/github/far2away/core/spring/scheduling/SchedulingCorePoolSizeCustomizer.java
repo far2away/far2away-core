@@ -1,4 +1,4 @@
-package com.github.far2away.core.spring.schedule;
+package com.github.far2away.core.spring.scheduling;
 
 import io.micrometer.core.lang.Nullable;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
  * @since 2021/10/16
  */
 @Slf4j
-public class ScheduleCorePoolSizeCustomizer implements TaskSchedulerCustomizer, EnvironmentAware {
+public class SchedulingCorePoolSizeCustomizer implements TaskSchedulerCustomizer, EnvironmentAware {
 
     private static final String PROPERTY_SCHEDULE_CORE_POOL_SIZE = "spring.task.scheduling.pool.size";
 

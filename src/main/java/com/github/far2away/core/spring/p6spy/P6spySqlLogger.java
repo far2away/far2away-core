@@ -8,8 +8,6 @@ import com.p6spy.engine.common.P6Util;
 import com.p6spy.engine.logging.Category;
 import com.p6spy.engine.spy.appender.FormattedLogger;
 import java.nio.charset.StandardCharsets;
-import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.DigestUtils;
 import org.springframework.util.StringUtils;
@@ -65,7 +63,7 @@ public class P6spySqlLogger extends FormattedLogger {
         }
 
         //INFO级别，记录正常SQL指标，根据耗时选择打印方式
-        MetricsUtils.recordSqlExec(Duration.of(elapsed, ChronoUnit.MILLIS));
+        MetricsUtils.recordSqlExec(elapsed);
         if (elapsed < 1000L) {
             //小于1s，正常info形式输出
             log.info(msg);
@@ -73,7 +71,7 @@ public class P6spySqlLogger extends FormattedLogger {
             //记录长SQL指标
             String singleLinePrepared = ObjectUtils.value(StrUtils.singleLine(prepared), StringConstants.EMPTY);
             String md5 = DigestUtils.md5DigestAsHex(singleLinePrepared.getBytes(StandardCharsets.UTF_8));
-            MetricsUtils.recordLongSqlExec(Duration.of(elapsed, ChronoUnit.MILLIS), md5);
+            MetricsUtils.recordLongSqlExec(elapsed, md5);
 
             if (elapsed < 5000L) {
                 //在1-5s，已warn形式输出

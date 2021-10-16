@@ -22,9 +22,9 @@ public class MetricsConstants {
 
     public final String METRICS_NAME_LONG_SQL_EXEC = METRICS_CORE_PREFIX + "long_sql_exec";
 
-    public final String METRICS_NAME_UNEXPECTED_EXCEPTION_ON_TASK = METRICS_CORE_PREFIX + "unexpected_exception_on_task";
+    public final String METRICS_NAME_SCHEDULING_EXEC = METRICS_CORE_PREFIX + "scheduling_exec";
 
-    public final String METRICS_NAME_UNEXPECTED_EXCEPTION_ON_ASYNC = METRICS_CORE_PREFIX + "unexpected_exception_on_async";
+    public final String METRICS_NAME_ASYNC_EXEC = METRICS_CORE_PREFIX + "async_exec";
 
     public final String TAG_NAME_URL = "url";
 
