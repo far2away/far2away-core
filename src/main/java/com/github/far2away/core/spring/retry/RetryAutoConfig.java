@@ -4,7 +4,6 @@ import javax.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +23,6 @@ import org.springframework.retry.annotation.RetryConfiguration;
 @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @ConditionalOnClass(RetryConfiguration.class)
-@ConditionalOnBean(RetryConfiguration.class)
 @ConditionalOnProperty(name = "far2away.core.retry.enabled", havingValue = "true", matchIfMissing = true)
 public class RetryAutoConfig {
 
