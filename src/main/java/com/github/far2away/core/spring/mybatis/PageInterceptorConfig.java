@@ -21,7 +21,7 @@ public class PageInterceptorConfig {
     @Bean
     @ConditionalOnMissingBean(PageInterceptor.class)
     public Interceptor pageInterceptor() {
-        log.info("far2away_core_mybatis_page_interceptor_configured");
+        log.debug("far2away_core_mybatis_page_interceptor_configured");
         PageInterceptor pageInterceptor = new PageInterceptor();
         Properties properties = new Properties();
         properties.setProperty("helperDialect", "mysql");

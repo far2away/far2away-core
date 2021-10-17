@@ -5,6 +5,8 @@ import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * swagger配置属性类
+ *
  * @author far2away
  * @since 2021/10/15
  */

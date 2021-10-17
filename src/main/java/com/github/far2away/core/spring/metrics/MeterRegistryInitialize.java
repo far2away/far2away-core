@@ -17,6 +17,8 @@ import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 /**
+ * 开启记录指标
+ *
  * @author far2away
  * @since 2021/10/15
  */
@@ -38,6 +40,7 @@ public class MeterRegistryInitialize implements ApplicationContextAware {
 
         Object meterRegistry = SpringUtils.getBeanSilently(MeterRegistry.class);
         if (Objects.nonNull(meterRegistry)) {
+            log.debug("far2away_core_open_metrics");
             MetricsUtils.openMetrics();
         }
     }

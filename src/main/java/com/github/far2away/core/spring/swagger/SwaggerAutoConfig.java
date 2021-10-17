@@ -29,6 +29,8 @@ import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
+ * swagger自动配置类
+ *
  * @author far2away
  * @since 2021/10/15
  */

@@ -13,6 +13,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * 指标的timed注解自动配置类
+ *
  * @author far2away
  * @since 2021/10/15
  */
@@ -32,7 +34,7 @@ public class TimeAspectAutoConfig {
     @Bean
     @ConditionalOnMissingBean(TimedAspect.class)
     public TimedAspect timedAspect(MeterRegistry registry) {
-        log.info("far2away_core_time_aspect_annotation_configured");
+        log.debug("far2away_core_time_aspect_annotation_configured");
         return new TimedAspect(registry);
     }
 

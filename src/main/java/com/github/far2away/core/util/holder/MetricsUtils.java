@@ -33,7 +33,6 @@ public class MetricsUtils {
     private final AtomicBoolean METRICS_ENABLE = new AtomicBoolean(false);
 
     public void openMetrics() {
-        log.info("far2away_core_open_metrics");
         METRICS_ENABLE.set(true);
     }
 

@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.Ordered;
 
 /**
+ * 指标自动配置类
+ *
  * @author far2away
  * @since 2021/10/15
  */

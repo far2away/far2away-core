@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 /**
+ * 全局异常统一拦截、Interceptor
+ *
  * @author far2away
  * @since 2021/10/15
  */

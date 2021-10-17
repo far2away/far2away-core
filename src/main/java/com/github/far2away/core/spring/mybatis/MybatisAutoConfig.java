@@ -66,7 +66,7 @@ public class MybatisAutoConfig {
         //增加默认包路径，resource下面的mapper
         PathMatchingResourcePatternResolver pathM3R = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(pathM3R.getResources("classpath*:mapper/**/*.xml"));
-        log.info("far2away_core_mybatis_sql_session_configured");
+        log.debug("far2away_core_mybatis_sql_session_configured");
         return sqlSessionFactoryBean;
     }
 

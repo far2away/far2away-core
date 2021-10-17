@@ -27,7 +27,7 @@ public class FeignExceptionHandler {
 
     @PostConstruct
     public void initLog() {
-        log.info("far2away_core_feign_exception_handler_configured");
+        log.debug("far2away_core_feign_exception_handler_configured");
     }
 
     @ExceptionHandler(value = {FeignException.class})

@@ -1,5 +1,5 @@
 /**
- * Async线程池配置包
+ * Async异步配置包
  *
  * @author far2away
  * @since 2021/10/15

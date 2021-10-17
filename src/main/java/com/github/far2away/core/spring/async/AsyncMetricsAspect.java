@@ -12,6 +12,8 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 
 /**
+ * 异步任务的指标切面，记录执行时间、异常等
+ *
  * @author far2away
  * @since 2021/10/16
  */

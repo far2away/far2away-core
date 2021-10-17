@@ -27,7 +27,7 @@ public class DuplicateKeyExceptionHandler {
 
     @PostConstruct
     public void initLog() {
-        log.info("far2away_core_duplicate_key_exception_handler_configured");
+        log.debug("far2away_core_duplicate_key_exception_handler_configured");
     }
 
     @ExceptionHandler(value = {DuplicateKeyException.class})

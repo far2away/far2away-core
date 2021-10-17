@@ -12,6 +12,8 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 /**
+ * i18n locale过滤器
+ *
  * @author far2away
  * @since 2021/10/15
  */

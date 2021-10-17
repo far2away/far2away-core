@@ -15,6 +15,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 /**
+ * 异步任务自动配置类
+ *
  * @author far2away
  * @since 2021/10/16
  */

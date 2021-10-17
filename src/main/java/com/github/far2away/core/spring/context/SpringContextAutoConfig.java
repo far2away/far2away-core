@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.Ordered;
 
 /**
+ * spring context自动配置类
+ *
  * @author far2away
  * @since 2021/10/15
  */
@@ -19,7 +21,7 @@ public class SpringContextAutoConfig {
 
     @PostConstruct
     public void initLog() {
-        log.info("far2away_core_spring_context_auto_configured");
+        log.debug("far2away_core_spring_context_auto_configured");
     }
 
 }

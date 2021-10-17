@@ -7,6 +7,7 @@ import com.github.far2away.core.util.generic.UrlUtils;
 import com.github.far2away.core.util.holder.JsonUtils;
 import com.github.far2away.core.util.holder.MetricsUtils;
 import com.github.far2away.core.util.holder.ResponseUtils;
+import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +15,18 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 /**
+ * 全局统一异常拦截-Filter
+ *
  * @author far2away
  * @since 2021/10/15
  */
 @Slf4j
 public class GlobalExceptionFilter extends OncePerRequestFilter {
+
+    @PostConstruct
+    public void initLog() {
+        log.debug("far2away_core_exception_filter_configured");
+    }
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) {

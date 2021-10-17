@@ -11,6 +11,8 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 /**
+ * i18n locale拦截器
+ *
  * @author far2away
  * @since 2021/10/15
  */

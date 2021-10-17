@@ -17,6 +17,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.DispatcherServlet;
 
 /**
+ * 全局异常统一拦截-自动配置类
+ *
  * @author far2away
  * @since 2021/10/15
  */
