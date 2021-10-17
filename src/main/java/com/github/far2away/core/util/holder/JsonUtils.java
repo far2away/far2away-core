@@ -46,7 +46,7 @@ public class JsonUtils {
                 return writer.writeValueAsString(object);
             }
         } catch (JsonProcessingException e) {
-            log.error("failed_object_to_json_{}_{}", object, e.getMessage());
+            log.error("json_failed_object_to_json_{}_{}", object, e.getMessage());
             throw new JsonException(e);
         }
     }
@@ -67,7 +67,7 @@ public class JsonUtils {
                 return reader.readTree(text);
             }
         } catch (JsonProcessingException e) {
-            log.error("failed_json_to_object_{}_{}", text, e.getMessage());
+            log.error("json_failed_json_to_object_{}_{}", text, e.getMessage());
             throw new JsonException(e);
         }
     }
@@ -97,7 +97,7 @@ public class JsonUtils {
                 return reader.readValue(text);
             }
         } catch (JsonProcessingException e) {
-            log.error("failed_json_to_class_{}_{}_{}", type.getTypeName(), text, e.getMessage());
+            log.error("json_failed_json_to_class_{}_{}_{}", type.getTypeName(), text, e.getMessage());
             throw new JsonException(e);
         }
     }
@@ -108,7 +108,7 @@ public class JsonUtils {
         try {
             return getInstance().readValue(text, typeFactory.constructCollectionType(List.class, clazz));
         } catch (JsonProcessingException e) {
-            log.error("failed_json_to_class[]_{}_{}_{}", clazz.getName(), text, e.getMessage());
+            log.error("json_failed_json_to_class[]_{}_{}_{}", clazz.getName(), text, e.getMessage());
             throw new JsonException(e);
         }
     }
@@ -124,7 +124,7 @@ public class JsonUtils {
             JsonNode node = mapper.readTree(json);
             return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(node);
         } catch (IOException e) {
-            log.error("failed_json_format_{}_{}", json, e.getMessage());
+            log.error("json_failed_json_format_{}_{}", json, e.getMessage());
             throw new JsonException(e);
         }
     }

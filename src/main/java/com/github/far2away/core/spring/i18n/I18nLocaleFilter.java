@@ -25,7 +25,7 @@ public class I18nLocaleFilter extends OncePerRequestFilter {
         throws ServletException, IOException {
         String newLocale = I18nUtils.getLocaleFromRequest(request);
         LocaleContextHolder.setLocale(StringUtils.parseLocaleString(newLocale));
-        log.debug("successfully_changed_filter_locale_to_{}.", newLocale);
+        log.debug("i18n_filter_changed_locale_to_{}.", newLocale);
         filterChain.doFilter(request, response);
     }
 

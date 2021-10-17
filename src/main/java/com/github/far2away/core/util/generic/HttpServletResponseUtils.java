@@ -27,7 +27,7 @@ public class HttpServletResponseUtils {
             writer.write(content);
             writer.flush();
         } catch (IOException e) {
-            log.error("failed_output_response_" + content, e);
+            log.error("http_utils_failed_output_response_" + content, e);
         }
     }
 

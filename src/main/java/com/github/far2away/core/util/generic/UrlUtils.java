@@ -17,7 +17,7 @@ public class UrlUtils {
         try {
             return getUrlWithoutParams(url);
         } catch (URISyntaxException e) {
-            log.warn("failed_remove_params_4_url_{}", url);
+            log.warn("url_utils_failed_remove_params_4_url_{}", url);
         }
         return url;
     }

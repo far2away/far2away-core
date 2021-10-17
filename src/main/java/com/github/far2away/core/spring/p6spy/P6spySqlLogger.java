@@ -23,7 +23,7 @@ public class P6spySqlLogger extends FormattedLogger {
 
     @Override
     public void logException(Exception e) {
-        log.error("P6spy_log_exception", e);
+        log.error("p6spy_log_exception", e);
     }
 
     @Override

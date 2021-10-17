@@ -25,10 +25,10 @@ public class I18nLocaleChangeInterceptor extends LocaleChangeInterceptor {
 
         LocaleResolver localeResolver = RequestContextUtils.getLocaleResolver(request);
         if (Objects.isNull(localeResolver)) {
-            log.warn("failed_change_locale_1_locale_resolver_not_found");
+            log.warn("i18n_interceptor_failed_change_locale_1_locale_resolver_not_found");
         } else {
             localeResolver.setLocale(request, response, StringUtils.parseLocaleString(newLocale));
-            log.debug("successfully_changed_interceptor_locale_to_{}.", newLocale);
+            log.debug("i18n_interceptor_changed_locale_to_{}.", newLocale);
         }
         return true;
     }
