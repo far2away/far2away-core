@@ -31,15 +31,14 @@ public class RetryLogListener implements RetryListener {
         }
         ReflectionUtils.makeAccessible(labelField);
         String label = (String) ReflectionUtils.getField(labelField, callback);
-        int retryCount = context.getRetryCount();
-        log.info("retry_start_{}_{}", retryCount, label);
+        log.info("retry_open_{}", label);
         return true;
     }
 
     @Override
     public <T, E extends Throwable> void close(RetryContext context, RetryCallback<T, E> callback, Throwable throwable) {
-        int retryCount = context.getRetryCount();
-        log.info("retry_successfully_{}_{}", retryCount, context.getAttribute(ATTRIBUTE_NAME_CONTEXT_NAME));
+        int execCount = context.getRetryCount() + 1;
+        log.info("retry_close_{}_{}", execCount, context.getAttribute(ATTRIBUTE_NAME_CONTEXT_NAME));
     }
 
     @Override
