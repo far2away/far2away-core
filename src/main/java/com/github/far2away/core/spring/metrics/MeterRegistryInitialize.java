@@ -6,7 +6,6 @@ import io.micrometer.core.instrument.MeterRegistry;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -24,7 +23,6 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@ConditionalOnClass(MeterRegistry.class)
 public class MeterRegistryInitialize implements ApplicationContextAware {
 
     @Nullable

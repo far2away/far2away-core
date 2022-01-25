@@ -27,13 +27,13 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @ConditionalOnProperty(name = "far2away.core.async.executor.enabled", havingValue = "true", matchIfMissing = true)
 public class AsyncAutoConfig {
 
-    @PostConstruct
-    public void initLog() {
-        log.info("far2away_core_async_metrics_auto_configured");
-    }
-
     @ConditionalOnClass(MeterRegistry.class)
     static class AsyncExecutorMetrics {
+
+        @PostConstruct
+        public void initLog() {
+            log.debug("far2away_core_async_metrics_configured");
+        }
 
         private static final String METRICS_NAME_ASYNC_THREAD_POOL = "async_thread_pool";
 

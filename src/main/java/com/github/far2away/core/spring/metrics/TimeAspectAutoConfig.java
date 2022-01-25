@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Slf4j
 @Configuration
-@ConditionalOnClass({Timed.class, MeterRegistry.class})
+@ConditionalOnClass(Timed.class)
 @ConditionalOnBean(MeterRegistry.class)
 @AutoConfigureAfter(MetricsAutoConfiguration.class)
 public class TimeAspectAutoConfig {
