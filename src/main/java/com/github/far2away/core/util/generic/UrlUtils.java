@@ -2,8 +2,10 @@ package com.github.far2away.core.util.generic;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Map;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.util.UriComponentsBuilder;
 
 /**
  * @author far2away
@@ -25,6 +27,12 @@ public class UrlUtils {
     public String getUrlWithoutParams(String url) throws URISyntaxException {
         URI uri = new URI(url);
         return new URI(uri.getScheme(), uri.getAuthority(), uri.getPath(), null, uri.getFragment()).toString();
+    }
+
+    public String buildAndEncodeUrl(String apiUrl, Map<String, Object> params) {
+        UriComponentsBuilder uriComponentsBuilder = UriComponentsBuilder.fromHttpUrl(apiUrl);
+        params.forEach(uriComponentsBuilder::queryParam);
+        return uriComponentsBuilder.encode().toUriString();
     }
 
 }
