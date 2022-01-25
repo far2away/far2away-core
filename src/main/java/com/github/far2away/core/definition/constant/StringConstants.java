@@ -52,6 +52,11 @@ public class StringConstants {
     public final String ELLIPSIS = "...";
 
     /**
+     * 斜线号
+     */
+    public final String DIAGONAL_MARK = "/";
+
+    /**
      * null
      */
     public final String NULL = "null";
