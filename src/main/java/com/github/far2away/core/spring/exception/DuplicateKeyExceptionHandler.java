@@ -3,7 +3,7 @@ package com.github.far2away.core.spring.exception;
 import com.github.far2away.core.definition.response.ResponseCode;
 import com.github.far2away.core.util.generic.UrlUtils;
 import com.github.far2away.core.util.holder.MetricsUtils;
-import com.github.far2away.core.util.holder.ResponseUtils;
+import com.github.far2away.core.util.generic.ResponseUtils;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;

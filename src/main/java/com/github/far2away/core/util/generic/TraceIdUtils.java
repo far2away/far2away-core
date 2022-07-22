@@ -1,4 +1,4 @@
-package com.github.far2away.core.util.holder;
+package com.github.far2away.core.util.generic;
 
 import lombok.experimental.UtilityClass;
 import org.slf4j.MDC;

@@ -1,10 +1,11 @@
-package com.github.far2away.core.util.holder;
+package com.github.far2away.core.util.generic;
 
 import com.github.far2away.core.definition.exception.BizException;
 import com.github.far2away.core.definition.i18n.I18nMessageDetails;
 import com.github.far2away.core.definition.response.ResponseCode;
 import com.github.far2away.core.definition.response.ResponseCodeDetails;
 import com.github.far2away.core.definition.vo.ResponseVo;
+import com.github.far2away.core.util.holder.I18nUtils;
 import lombok.experimental.UtilityClass;
 import org.springframework.lang.Nullable;
 

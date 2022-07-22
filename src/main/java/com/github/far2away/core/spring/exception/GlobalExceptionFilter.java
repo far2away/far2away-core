@@ -6,7 +6,7 @@ import com.github.far2away.core.util.generic.HttpServletResponseUtils;
 import com.github.far2away.core.util.generic.UrlUtils;
 import com.github.far2away.core.util.holder.JsonUtils;
 import com.github.far2away.core.util.holder.MetricsUtils;
-import com.github.far2away.core.util.holder.ResponseUtils;
+import com.github.far2away.core.util.generic.ResponseUtils;
 import javax.annotation.PostConstruct;
 import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
