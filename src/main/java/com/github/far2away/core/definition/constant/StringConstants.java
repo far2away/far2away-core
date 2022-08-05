@@ -57,6 +57,11 @@ public class StringConstants {
     public final String DIAGONAL_MARK = "/";
 
     /**
+     * 加号
+     */
+    public final String PLUS = "+";
+
+    /**
      * null
      */
     public final String NULL = "null";
