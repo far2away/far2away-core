@@ -3,6 +3,7 @@ package com.github.far2away.core.util.holder;
 import com.github.far2away.core.spring.context.SpringContextHolder;
 import lombok.experimental.UtilityClass;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.env.Environment;
 import org.springframework.lang.Nullable;
 
 /**
@@ -30,6 +31,12 @@ public class SpringUtils {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    @Nullable
+    public String getProperty(String key) {
+        Environment environment = getApplicationContext().getEnvironment();
+        return environment.getProperty(key);
     }
 
     private ApplicationContext getApplicationContext() {
