@@ -62,6 +62,11 @@ public class StringConstants {
     public final String PLUS = "+";
 
     /**
+     * @
+     */
+    public final String AT = "@";
+
+    /**
      * null
      */
     public final String NULL = "null";
