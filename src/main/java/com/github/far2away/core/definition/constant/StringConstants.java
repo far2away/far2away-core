@@ -67,6 +67,11 @@ public class StringConstants {
     public final String AT = "@";
 
     /**
+     * @
+     */
+    public final String DOT = ".";
+
+    /**
      * null
      */
     public final String NULL = "null";
