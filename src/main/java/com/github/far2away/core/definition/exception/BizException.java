@@ -2,6 +2,7 @@ package com.github.far2away.core.definition.exception;
 
 import com.github.far2away.core.definition.i18n.I18nMessageDetails;
 import com.github.far2away.core.definition.response.ResponseCodeDetails;
+import javax.servlet.http.HttpServletRequest;
 import lombok.Getter;
 import org.springframework.lang.Nullable;
 
@@ -9,6 +10,9 @@ import org.springframework.lang.Nullable;
  * 通用业务异常
  *
  * @author far2away
+ * @see com.github.far2away.core.spring.exception.GlobalExceptionHandler#handleBizException(HttpServletRequest, BizException)
+ * @see com.github.far2away.core.spring.exception.GlobalExceptionFilter
+ * @see com.github.far2away.core.definition.support.LogUncaughtExceptionHandler#uncaughtException(Thread, Throwable)
  * @since 2021/10/15
  */
 public class BizException extends RuntimeException implements I18nMessageDetails {

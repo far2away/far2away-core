@@ -1,5 +1,8 @@
 package com.github.far2away.core.definition.support;
 
+import com.github.far2away.core.definition.constant.StringConstants;
+import com.github.far2away.core.definition.i18n.I18nMessageDetails;
+import com.github.far2away.core.util.holder.I18nUtils;
 import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +29,14 @@ public class LogUncaughtExceptionHandler implements UncaughtExceptionHandler {
 
     @Override
     public void uncaughtException(Thread t, Throwable e) {
-        finalLog.error("Exception in thread " + t.getName(), e);
+        StringBuilder sb = new StringBuilder("Exception in thread " + t.getName());
+        if (e instanceof I18nMessageDetails) {
+            I18nMessageDetails i18nMessageDetails = (I18nMessageDetails) e;
+            String i18nMessage = I18nUtils.getI18nMessage(i18nMessageDetails);
+            sb.append(StringConstants.SPACE).append(StringConstants.HYPHEN);
+            sb.append(StringConstants.SPACE).append(i18nMessage);
+        }
+        finalLog.error(sb.toString(), e);
     }
 
 }
